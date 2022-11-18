@@ -7,28 +7,7 @@ const migrations = {
   0: (state) => {
     return {
       ...state,
-      lists: undefined,
-    };
-  },
-  // @ts-ignore
-  1: (state) => {
-    return {
-      ...state,
-      user: initialUserState,
-    };
-  },
-  // @ts-ignore
-  2: (state) => {
-    return {
-      ...state,
-      lists: undefined,
-    };
-  },
-  // @ts-ignore
-  3: (state) => {
-    return {
-      ...state,
-      lists: initialListsState,
+      // lists: initialListsState,
     };
   },
 };

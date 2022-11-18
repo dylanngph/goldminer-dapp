@@ -19,34 +19,34 @@
 // const CHAINLINK_LIST = "https://token-list.sushi.com/chainlink";
 // const CHERRYSWAP_LIST = "https://www.cherryswap.net/swapimages/json/t3/cherryswap.json";
 
-// export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST];
+export const UNSUPPORTED_LIST_URLS: string[] = [];
 
 // this is the default list of lists that are exposed to users
 // lower index == higher priority for token import
-// const DEFAULT_LIST_OF_LISTS_TO_DISPLAY: string[] = [
-//   SUSHI_LIST,
-//   CHAINLINK_LIST,
-//   COMPOUND_LIST,
-//   AAVE_LIST,
-//   CMC_ALL_LIST,
-//   COINGECKO_LIST,
-//   UMA_LIST,
-//   YEARN_LIST,
-//   SYNTHETIX_LIST,
-//   KLEROS_LIST,
-//   GEMINI_LIST,
-//   WRAPPED_LIST,
-//   SET_LIST,
-//   ROLL_LIST,
-//   NFTX_LIST,
-//   DHEDGE_LIST,
-//   CHERRYSWAP_LIST,
-// ];
+const DEFAULT_LIST_OF_LISTS_TO_DISPLAY: string[] = [
+  //   SUSHI_LIST,
+  //   CHAINLINK_LIST,
+  //   COMPOUND_LIST,
+  //   AAVE_LIST,
+  //   CMC_ALL_LIST,
+  //   COINGECKO_LIST,
+  //   UMA_LIST,
+  //   YEARN_LIST,
+  //   SYNTHETIX_LIST,
+  //   KLEROS_LIST,
+  //   GEMINI_LIST,
+  //   WRAPPED_LIST,
+  //   SET_LIST,
+  //   ROLL_LIST,
+  //   NFTX_LIST,
+  //   DHEDGE_LIST,
+  //   CHERRYSWAP_LIST,
+];
 
-// export const DEFAULT_LIST_OF_LISTS: string[] = [
-//   ...DEFAULT_LIST_OF_LISTS_TO_DISPLAY,
-//   ...UNSUPPORTED_LIST_URLS, // need to load dynamic unsupported tokens as well
-// ];
+export const DEFAULT_LIST_OF_LISTS: string[] = [
+  ...DEFAULT_LIST_OF_LISTS_TO_DISPLAY,
+  ...UNSUPPORTED_LIST_URLS, // need to load dynamic unsupported tokens as well
+];
 
 // default lists to be 'active' aka searched across
-// export const DEFAULT_ACTIVE_LIST_URLS: string[] = [SUSHI_LIST, CHAINLINK_LIST, GEMINI_LIST, NFTX_LIST];
+export const DEFAULT_ACTIVE_LIST_URLS: string[] = [];

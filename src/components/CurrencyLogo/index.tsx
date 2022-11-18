@@ -1,5 +1,6 @@
 import { ChainId, Currency, WNATIVE } from '@bionswap/core-sdk';
 import { Logo } from 'components';
+import { DEFAULT_TOKEN_LIST } from 'configs/default-token-list';
 import { WrappedTokenInfo } from 'entities/WrappedTokenInfo';
 
 import { useHttpLocations } from 'hooks';
@@ -33,6 +34,10 @@ export const getCurrencyLogoUrls = (currency: Currency): string[] => {
   const urls: string[] = [];
 
   if (currency.chainId in BLOCKCHAIN) {
+    if (DEFAULT_TOKEN_LIST[currency.chainId][currency.wrapped.address]) {
+      urls.push(DEFAULT_TOKEN_LIST[currency.chainId][currency.wrapped.address].logoURI!);
+    }
+    
     urls.push(
       `https://raw.githubusercontent.com/sushiswap/logos/main/network/${
         BLOCKCHAIN[currency.chainId as keyof typeof BLOCKCHAIN]
@@ -123,9 +128,6 @@ export interface CurrencyLogoProps {
 }
 
 const CurrencyLogo: FunctionComponent<CurrencyLogoProps> = ({ currency, size = '24px' }) => {
-  const uriLocations = useHttpLocations(
-    currency instanceof WrappedTokenInfo ? currency.logoURI || currency.tokenInfo.logoURI : undefined,
-  );
   const srcs: string[] = useMemo(() => {
     if (currency?.isNative || currency?.equals?.(WNATIVE[currency.chainId])) {
       return [LOGO[currency.chainId as keyof typeof LOGO]];
@@ -134,18 +136,17 @@ const CurrencyLogo: FunctionComponent<CurrencyLogoProps> = ({ currency, size = '
     if (currency?.isToken) {
       const defaultUrls = [...getCurrencyLogoUrls(currency)];
 
-      if (currency.name === 'OKT') {
-        console.log('🚀 ~ file: index.tsx ~ line 136 ~ constsrcs:string[]=useMemo ~ defaultUrls', defaultUrls);
-      }
-
-      if (currency instanceof WrappedTokenInfo) {
-        return [...uriLocations, ...defaultUrls];
-      }
+      // if (currency instanceof WrappedTokenInfo) {
+      //   return [
+      //     // ...(currency.logoURI ? [currency.logoURI] : currency.tokenInfo.logoURI ? [currency.tokenInfo.logoURI] : []),
+      //     ...defaultUrls,
+      //   ];
+      // }
       return defaultUrls;
     }
 
     return [];
-  }, [currency, uriLocations]);
+  }, [currency]);
 
   return <Logo srcs={srcs} width={size} height={size} alt={currency?.symbol} />;
 };

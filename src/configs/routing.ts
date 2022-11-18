@@ -61,8 +61,6 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
     // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.BSC],
-    // @ts-ignore TYPE NEEDS FIXING
     BSC.WETH,
     // @ts-ignore TYPE NEEDS FIXING
     BSC.BTCB,

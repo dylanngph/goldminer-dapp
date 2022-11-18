@@ -50,14 +50,14 @@ const CurrencySearch = ({
 
   const isAddressSearch = isAddress(debouncedSearchQuery);
 
-  useEffect(() => {
-    if (isAddressSearch) {
-      gtag('event', 'Search by address', {
-        event_category: 'Currency Select',
-        event_label: isAddressSearch,
-      });
-    }
-  }, [isAddressSearch]);
+  // useEffect(() => {
+  //   if (isAddressSearch) {
+  //     gtag('event', 'Search by address', {
+  //       event_category: 'Currency Select',
+  //       event_label: isAddressSearch,
+  //     });
+  //   }
+  // }, [isAddressSearch]);
 
   const searchToken = useToken(debouncedSearchQuery);
   const searchTokenIsAdded = useIsUserAddedToken(searchToken);
@@ -136,7 +136,7 @@ const CurrencySearch = ({
             disableUnderline: true,
           }}
         />
-        <CommonBases onCurrencySelect={onSelect} />
+        {/* <CommonBases onCurrencySelect={onSelect} /> */}
       </Stack>
       <Stack
         sx={{
