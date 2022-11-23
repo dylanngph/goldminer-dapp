@@ -160,12 +160,12 @@ const CurrencySearch = ({
           </Stack>
 
         </Stack> */}
-      <ManageTokenBtn fullWidth onClick={() => setView(ManageCurrencyListModalView.manage)}>
+      {/* <ManageTokenBtn fullWidth onClick={() => setView(ManageCurrencyListModalView.manage)}>
         <img src="/images/sticky_note_2.png" alt="sticky_note_2.png" />
         <Typography variant="body3Poppins" fontWeight="400" color="primary.main">
           Manage Token List
         </Typography>
-      </ManageTokenBtn>
+      </ManageTokenBtn> */}
     </Stack>
   );
 };

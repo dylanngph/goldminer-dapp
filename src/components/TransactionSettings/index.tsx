@@ -1,11 +1,10 @@
-import SettingsIcon from "@mui/icons-material/Settings";
-import { IconButton, OutlinedInput, Popover, Stack, Typography } from "@mui/material";
-import { Switch } from "components";
-import PrimaryButton from "components/PrimaryButton";
-import { DEFAULT_DEADLINE_FROM_NOW } from "constants/common";
-import React, { useEffect, useMemo, useState } from "react";
-import { SlippageError, useExpertModeManager, useUserSlippageTolerance, useUserTransactionTTL } from "state/user/hooks";
-import { V2_SWAP_DEFAULT_SLIPPAGE } from "state/user/reducer";
+import SettingsIcon from '@mui/icons-material/Settings';
+import { IconButton, OutlinedInput, Popover, Stack, Typography } from '@mui/material';
+import { Switch, Button } from 'components';
+import { DEFAULT_DEADLINE_FROM_NOW } from 'constants/common';
+import React, { useEffect, useMemo, useState } from 'react';
+import { SlippageError, useExpertModeManager, useUserSlippageTolerance, useUserTransactionTTL } from 'state/user/hooks';
+import { V2_SWAP_DEFAULT_SLIPPAGE } from 'state/user/reducer';
 
 type Props = {};
 
@@ -47,20 +46,33 @@ const TransactionSettings = (props: Props) => {
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
+          vertical: 'bottom',
+          horizontal: 'left',
         }}
         transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
+          vertical: 'top',
+          horizontal: 'right',
         }}
       >
-        <Stack width={380} bgcolor="gray.900" px="15px" py="25px" borderRadius="8px" gap={1} sx={{
-              border:'1px solid',
-              borderColor: 'gray.700',
-              boxShadow: '0px 4px 11px #000000',
-        }}>
-          <Stack width="100%" alignItems="start" borderRadius="8px" sx={{ border: "1px solid rgba(32,34,49,.6)", p: 1 }}>
+        <Stack
+          width={380}
+          bgcolor="gray.900"
+          px="15px"
+          py="25px"
+          borderRadius="8px"
+          gap={1}
+          sx={{
+            border: '1px solid',
+            borderColor: 'gray.700',
+            boxShadow: '0px 4px 11px #000000',
+          }}
+        >
+          <Stack
+            width="100%"
+            alignItems="start"
+            borderRadius="8px"
+            sx={{ border: '1px solid rgba(32,34,49,.6)', p: 1 }}
+          >
             <Typography variant="body3Poppins">Transaction Settings</Typography>
 
             <Stack alignItems="start" width="100%" gap={1} mt={1}>
@@ -68,11 +80,11 @@ const TransactionSettings = (props: Props) => {
                 Slippage Tolerance ?
               </Typography>
               <Stack direction="row" gap={1} width="100%">
-                <PrimaryButton
+                <Button
                   label="Auto"
                   labelSx={{ fontWeight: 600 }}
-                  variant={slippageIsDefault ? "contained" : "outlined"}
-                  sx={{ px: "23px", py: "5px", width: "auto", borderRadius: "8px" }}
+                  variant={slippageIsDefault ? 'contained' : 'outlined'}
+                  sx={{ px: '23px', py: '5px', width: 'auto', borderRadius: '8px' }}
                   onClick={() => setUserSlippageTolerance(V2_SWAP_DEFAULT_SLIPPAGE.toFixed(2))}
                 />
                 <OutlinedInput
@@ -88,15 +100,15 @@ const TransactionSettings = (props: Props) => {
                   fullWidth
                   endAdornment="%"
                   sx={{
-                    "& .MuiInputBase-input": {
-                      py: "9px",
+                    '& .MuiInputBase-input': {
+                      py: '9px',
                     },
-                    height: "100%",
-                    bgcolor: "background.default",
-                    borderRadius: "8px",
+                    height: '100%',
+                    bgcolor: 'background.default',
+                    borderRadius: '8px',
                   }}
                   inputProps={{
-                    style: { textAlign: "right", paddingRight: "4px" },
+                    style: { textAlign: 'right', paddingRight: '4px' },
                   }}
                 />
               </Stack>
@@ -111,26 +123,26 @@ const TransactionSettings = (props: Props) => {
                   value={deadlineInput}
                   onChange={(e) => setDeadlineInput(e.target.value)}
                   onBlur={() => {
-                    if (deadlineInput === "") {
+                    if (deadlineInput === '') {
                       setTtl(DEFAULT_DEADLINE_FROM_NOW);
                       return;
                     } else if (Number(deadlineInput) <= 1) {
-                      setDeadlineInput("1");
+                      setDeadlineInput('1');
                     }
                     if (Number(deadlineInput) === 0) setTtl(1 * 60);
                     else setTtl(Math.ceil(Number(deadlineInput)) * 60);
                   }}
                   sx={{
-                    "& .MuiInputBase-input": {
-                      py: "9px",
+                    '& .MuiInputBase-input': {
+                      py: '9px',
                     },
-                    height: "100%",
-                    bgcolor: "background.default",
-                    borderRadius: "8px",
-                    width: "30%",
+                    height: '100%',
+                    bgcolor: 'background.default',
+                    borderRadius: '8px',
+                    width: '30%',
                   }}
                   inputProps={{
-                    style: { textAlign: "right", paddingRight: "4px" },
+                    style: { textAlign: 'right', paddingRight: '4px' },
                   }}
                 />
                 <Typography color="gray.400" fontWeight={600}>
@@ -139,7 +151,12 @@ const TransactionSettings = (props: Props) => {
               </Stack>
             </Stack>
           </Stack>
-          <Stack width="100%" alignItems="start" borderRadius="8px" sx={{ border: "1px solid rgba(32,34,49,.6)", p: 1 }}>
+          <Stack
+            width="100%"
+            alignItems="start"
+            borderRadius="8px"
+            sx={{ border: '1px solid rgba(32,34,49,.6)', p: 1 }}
+          >
             <Typography variant="body3Poppins">Interface Settings</Typography>
 
             <Stack width="100%">

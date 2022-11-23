@@ -9,6 +9,8 @@ export { default as TransactionConfirmationModal } from './TransactionConfirmati
 export { default as ListLogo } from './ListLogo';
 export { default as TransactionSettings } from './TransactionSettings';
 export { default as Switch } from './Switch';
+export { default as Button } from './Button';
+export { default as DoubleCurrencyLogo } from './DoubleCurrencyLogo';
 
 export const ConnectButton = dynamic(() => import('./ConnectButton'), {
   ssr: false,

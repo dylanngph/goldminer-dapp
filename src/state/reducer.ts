@@ -5,6 +5,7 @@ import multicall from './multicall/reducer';
 import user from './user/reducer';
 import transactions from './transactions/reducer';
 import chains from './chains/reducer';
+import mint from './mint/reducer';
 import { combineReducers } from '@reduxjs/toolkit';
 
 const reducer = combineReducers({
@@ -15,5 +16,6 @@ const reducer = combineReducers({
   transactions,
   chains,
   theme,
+  mint,
 });
 export default reducer;

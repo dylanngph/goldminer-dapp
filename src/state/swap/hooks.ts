@@ -9,7 +9,7 @@ import {
   WNATIVE_ADDRESS,
   USDC_ADDRESS,
   USD,
-} from "@bionswap/core-sdk";
+} from '@bionswap/core-sdk';
 import {
   useAccount,
   useChain,
@@ -18,20 +18,20 @@ import {
   useEnsAddress,
   useNetwork,
   useParsedQueryString,
-} from "hooks";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import { AppState, useAppDispatch, useAppSelector } from "state";
-import { tryParseAmount } from "utils/parse";
-import { Field, replaceSwapState, selectCurrency, switchCurrencies, typeInput } from "./actions";
-import { useV2TradeExactIn as useTradeExactIn, useV2TradeExactOut as useTradeExactOut } from "hooks";
-import { useExpertModeManager, useUserSlippageTolerance } from "state/user/hooks";
-import { ParsedQs } from "qs";
-import { SwapState } from "./reducer";
-import { isAddress } from "utils/validate";
-import { getCurrencyId } from "utils/currencies";
+} from 'hooks';
+import { useRouter } from 'next/router';
+import { useCallback, useEffect, useState } from 'react';
+import { AppState, useAppDispatch, useAppSelector } from 'state';
+import { tryParseAmount } from 'utils/parse';
+import { Field, replaceSwapState, selectCurrency, switchCurrencies, typeInput } from './actions';
+import { useV2TradeExactIn as useTradeExactIn, useV2TradeExactOut as useTradeExactOut } from 'hooks';
+import { useExpertModeManager, useUserSlippageTolerance } from 'state/user/hooks';
+import { ParsedQs } from 'qs';
+import { SwapState } from './reducer';
+import { isAddress } from 'utils/validate';
+import { getCurrencyId } from 'utils/currencies';
 
-export function useSwapState(): AppState["swap"] {
+export function useSwapState(): AppState['swap'] {
   return useAppSelector((state) => state.swap);
 }
 
@@ -44,31 +44,33 @@ function involvesAddress(trade: V2Trade<Currency, Currency, TradeType>, checksum
   const path = trade.route.path;
   return (
     path.some((token) => token.address === checksummedAddress) ||
-    (trade instanceof V2Trade ? trade.route.pairs.some((pair) => pair.liquidityToken.address === checksummedAddress) : false)
+    (trade instanceof V2Trade
+      ? trade.route.pairs.some((pair) => pair.liquidityToken.address === checksummedAddress)
+      : false)
   );
 }
 
 function parseTokenAmountURLParameter(urlParam: any): string {
-  return typeof urlParam === "string" && !isNaN(parseFloat(urlParam)) ? urlParam : "";
+  return typeof urlParam === 'string' && !isNaN(parseFloat(urlParam)) ? urlParam : '';
 }
 
 function parseIndependentFieldURLParameter(urlParam: any): Field {
-  return typeof urlParam === "string" && urlParam.toLowerCase() === "output" ? Field.OUTPUT : Field.INPUT;
+  return typeof urlParam === 'string' && urlParam.toLowerCase() === 'output' ? Field.OUTPUT : Field.INPUT;
 }
 
 function parseCurrencyFromURLParameter(urlParam: any): string {
-  if (typeof urlParam === "string") {
+  if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam);
     if (valid) return valid;
-    if (urlParam.toUpperCase() === "ETH") return "ETH";
+    if (urlParam.toUpperCase() === 'ETH') return 'ETH';
   }
-  return "";
+  return '';
 }
 
 const ENS_NAME_REGEX = /^[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)?$/;
 const ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/;
 function validatedRecipient(recipient: any): string | undefined {
-  if (typeof recipient !== "string") return undefined;
+  if (typeof recipient !== 'string') return undefined;
   const address = isAddress(recipient);
   if (address) return address;
   if (ENS_NAME_REGEX.test(recipient)) return recipient;
@@ -86,7 +88,7 @@ export function useSwapActionHandlers(): {
 
   const router = useRouter();
 
-  const inputCurrencyId = router.query.inputCurrency || "ETH";
+  const inputCurrencyId = router.query.inputCurrency || 'ETH';
   const outputCurrencyId =
     router.query.outputCurrency || (chainId && chainId in SUSHI_ADDRESS ? SUSHI_ADDRESS[chainId] : undefined);
 
@@ -110,7 +112,7 @@ export function useSwapActionHandlers(): {
           } else {
             router.replace({
               pathname: window.location.pathname,
-              query: { ...router.query, inputCurrency: "ETH" },
+              query: { ...router.query, inputCurrency: 'ETH' },
             });
           }
         } else {
@@ -150,7 +152,7 @@ export function useSwapActionHandlers(): {
               pathname: window.location.pathname,
               query: {
                 ...router.query,
-                inputCurrency: "ETH",
+                inputCurrency: 'ETH',
                 outputCurrency: newOutputCurrencyId,
               },
             });
@@ -170,7 +172,7 @@ export function useSwapActionHandlers(): {
               pathname: window.location.pathname,
               query: {
                 ...router.query,
-                inputCurrency: "ETH",
+                inputCurrency: 'ETH',
                 outputCurrency: newOutputCurrencyId,
               },
             });
@@ -184,12 +186,12 @@ export function useSwapActionHandlers(): {
           currencyId: currency.isToken
             ? currency.address
             : currency.isNative && currency.chainId !== ChainId.CELO
-            ? "ETH"
-            : "",
-        })
+            ? 'ETH'
+            : '',
+        }),
       );
     },
-    [dispatch, inputCurrencyId, outputCurrencyId, router]
+    [dispatch, inputCurrencyId, outputCurrencyId, router],
   );
 
   const onSwitchTokens = useCallback(() => {
@@ -208,7 +210,7 @@ export function useSwapActionHandlers(): {
     (field: Field, typedValue: string) => {
       dispatch(typeInput({ field, typedValue }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   return {
@@ -222,8 +224,8 @@ const BAD_RECIPIENT_ADDRESSES: {
   [chainId: string]: { [address: string]: true };
 } = {
   [ChainId.ETHEREUM]: {
-    "0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac": true, // v2 factory
-    "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F": true, // v2 router 02
+    '0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac': true, // v2 factory
+    '0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F': true, // v2 router 02
   },
 };
 
@@ -291,7 +293,7 @@ export function useDerivedSwapInfo(): {
   let inputError: string | undefined;
 
   if (!account) {
-    inputError = "Connect Wallet";
+    inputError = 'Connect Wallet';
   }
 
   if (!parsedAmount) {
@@ -343,15 +345,15 @@ export function useDerivedSwapInfo(): {
 export function queryParametersToSwapState(parsedQs: ParsedQs, chainId: ChainId = ChainId.ETHEREUM): SwapState {
   let inputCurrency = parseCurrencyFromURLParameter(parsedQs.inputCurrency);
   let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency);
-  const eth = chainId === ChainId.CELO ? WNATIVE_ADDRESS[chainId] : "ETH";
+  const eth = chainId === ChainId.CELO ? WNATIVE_ADDRESS[chainId] : 'ETH';
   // const sushi = SUSHI_ADDRESS[chainId];
   const stableCoin = USD[chainId].address;
-  if (inputCurrency === "" && outputCurrency === "") {
+  if (inputCurrency === '' && outputCurrency === '') {
     inputCurrency = eth;
     outputCurrency = stableCoin;
-  } else if (inputCurrency === "") {
+  } else if (inputCurrency === '') {
     inputCurrency = outputCurrency === eth ? stableCoin : eth;
-  } else if (outputCurrency === "" || inputCurrency === outputCurrency) {
+  } else if (outputCurrency === '' || inputCurrency === outputCurrency) {
     outputCurrency = inputCurrency === eth ? stableCoin : eth;
   }
 
@@ -400,7 +402,7 @@ export function useDefaultsFromURLSearch():
         inputCurrencyId: parsed[Field.INPUT].currencyId,
         outputCurrencyId: parsed[Field.OUTPUT].currencyId,
         recipient: expertMode ? parsed.recipient : undefined,
-      })
+      }),
     );
 
     setResult({
@@ -413,7 +415,7 @@ export function useDefaultsFromURLSearch():
       undefined,
       {
         shallow: true,
-      }
+      },
     );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

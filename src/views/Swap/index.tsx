@@ -535,21 +535,11 @@ const Section = styled(Box)`
 const FlexBox = styled(Box)`
   display: flex;
 `;
-const top100Films = [
-  { label: 'USDT', token: '0xdac17f958d2ee523a2206206994597c13d831ec7' },
-  { label: 'BUSD', token: '0x4Fabb145d64652a948d72533023f6E7A623C7C53' },
-  { label: 'Shiba Inu', token: '0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce' },
-  { label: 'Polkadot', token: '0x7083609fce4d1d8dc0c979aab8c869ea2c873402' },
-  { label: 'Dogecoin', token: '0xba2ae424d960c26247dd6c32edc70b295c744c43' },
-];
 const WrapSwapBox = styled(Box)`
   background-color: ${(props) => props.theme.palette.gray[900]};
   border-radius: 8px;
   padding: 16px;
   height: 100%;
-`;
-const PaperItem = styled(Box)`
-  background-color: ${(props) => props.theme.palette.gray[900]};
 `;
 
 export default Swap;

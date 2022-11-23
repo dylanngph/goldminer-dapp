@@ -1,12 +1,12 @@
-import { ChainId, Currency } from "@bionswap/core-sdk";
-import CloseIcon from "@mui/icons-material/Close";
-import { Button, IconButton, Stack, Typography } from "@mui/material";
-import { BaseModal } from "components";
-import { useChain } from "hooks";
-import React, { useCallback } from "react";
-import ErrorIcon from "@mui/icons-material/Error";
-import CircularProgress from "@mui/material/CircularProgress";
-import NorthIcon from "@mui/icons-material/North";
+import { ChainId, Currency } from '@bionswap/core-sdk';
+import CloseIcon from '@mui/icons-material/Close';
+import { Button, IconButton, Stack, Typography } from '@mui/material';
+import { BaseModal } from 'components';
+import { useChain } from 'hooks';
+import React, { useCallback } from 'react';
+import ErrorIcon from '@mui/icons-material/Error';
+import CircularProgress from '@mui/material/CircularProgress';
+import NorthIcon from '@mui/icons-material/North';
 
 type TransactionConfirmationModalProps = {
   title: string;
@@ -15,20 +15,18 @@ type TransactionConfirmationModalProps = {
   hash?: string;
   content: React.ReactNode;
   attemptingTxn: boolean;
-  pendingText: string;
+  pendingText?: string;
   currencyToAdd?: Currency;
 };
 
-function ConfirmationPendingContent({ pendingText }: { pendingText: string }) {
+function ConfirmationPendingContent({ pendingText }: { pendingText?: string }) {
   return (
     <Stack>
       <CircularProgress />
       <Typography my={2} fontWeight={600}>
         {pendingText}
       </Typography>
-      <Typography mb={2}>
-        Confirm this transaction in your wallet
-      </Typography>
+      <Typography mb={2}>Confirm this transaction in your wallet</Typography>
     </Stack>
   );
 }
@@ -45,19 +43,19 @@ export function TransactionSubmittedContent({
   currencyToAdd?: Currency | undefined;
 }) {
   return (
-    <Stack gap={3} sx={{ width: "100%" }}>
-      <NorthIcon sx={{ color: "success.main", fontSize: 60 }} />
+    <Stack gap={3} sx={{ width: '100%' }}>
+      <NorthIcon sx={{ color: 'success.main', fontSize: 60 }} />
       <Typography fontSize={18}>Transaction submitted</Typography>
       <Button
         fullWidth
         sx={{
-          backgroundColor: "primary.main",
+          backgroundColor: 'primary.main',
           height: 50,
-          borderRadius: "8px",
-          "&:hover": {
-            backgroundColor: "primary.main",
+          borderRadius: '8px',
+          '&:hover': {
+            backgroundColor: 'primary.main',
           },
-          "&.Mui-disabled": {
+          '&.Mui-disabled': {
             opacity: 0.4,
           },
         }}
@@ -73,19 +71,19 @@ export function TransactionSubmittedContent({
 
 export function TransactionErrorContent({ message, onDismiss }: { message: string; onDismiss?: () => void }) {
   return (
-    <Stack gap={2} sx={{ width: "100%" }}>
-      <ErrorIcon sx={{ color: "error.main", fontSize: 50 }} />
+    <Stack gap={2} sx={{ width: '100%' }}>
+      <ErrorIcon sx={{ color: 'error.main', fontSize: 50 }} />
       <Typography>{message}</Typography>
       <Button
         fullWidth
         sx={{
-          backgroundColor: "primary.main",
+          backgroundColor: 'primary.main',
           height: 50,
-          borderRadius: "8px",
-          "&:hover": {
-            backgroundColor: "primary.main",
+          borderRadius: '8px',
+          '&:hover': {
+            backgroundColor: 'primary.main',
           },
-          "&.Mui-disabled": {
+          '&.Mui-disabled': {
             opacity: 0.4,
           },
         }}
@@ -118,23 +116,26 @@ const TransactionConfirmationModal = ({
   if (!chainId) return null;
 
   return (
-    <BaseModal open={open} sx={{ 
-      backgroundColor: "gray.900", 
-      minWidth: '200px',
-      maxWidth: "556px",
-      width: "90vW",
-      border: '1px solid',
-      borderColor: 'gray.700',
-      borderRadius: '8px',
-      boxShadow: '0px 4px 11px #000000',
-      padding: '25px 15px 15px',
-    }}>
-      <IconButton onClick={onDismiss} sx={{ position: "absolute", right: 8, top: 8 }}>
+    <BaseModal
+      open={open}
+      sx={{
+        backgroundColor: 'gray.900',
+        minWidth: '200px',
+        maxWidth: '556px',
+        width: '90vW',
+        border: '1px solid',
+        borderColor: 'gray.700',
+        borderRadius: '8px',
+        boxShadow: '0px 4px 11px #000000',
+        padding: '25px 15px 15px',
+      }}
+    >
+      <IconButton onClick={onDismiss} sx={{ position: 'absolute', right: 8, top: 8 }}>
         <CloseIcon />
       </IconButton>
       <Stack sx={{ minWidth: 200 }}>
-        <Stack justifyContent="flex-start" direction="row" sx={{ width: "100%", mb: 3 }}>
-          <Typography variant="body3Poppins" fontWeight={400} color='text.primary'>
+        <Stack justifyContent="flex-start" direction="row" sx={{ width: '100%', mb: 3 }}>
+          <Typography variant="body3Poppins" fontWeight={400} color="text.primary">
             {title}
           </Typography>
         </Stack>

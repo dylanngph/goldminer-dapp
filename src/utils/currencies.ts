@@ -5,7 +5,7 @@ export function getCurrencyId(currency: Currency): string {
     return currency.wrapped.address;
   }
 
-  if (currency.isNative) return "BNB";
+  if (currency.isNative) return "ETH";
 
   if (currency.isToken) return currency.address;
 
