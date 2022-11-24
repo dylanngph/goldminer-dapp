@@ -1,7 +1,9 @@
 import {
+  computePairAddress,
   Currency,
   CurrencyAmount,
   currencyEquals,
+  FACTORY_ADDRESS,
   Fraction,
   JSBI,
   Percent,
@@ -75,4 +77,23 @@ const ONE = new Fraction(1, 1);
 export function calculateSlippageAmount(value: CurrencyAmount<Currency>, slippage: Percent): [JSBI, JSBI] {
   if (slippage.lessThan(0) || slippage.greaterThan(ONE)) throw new Error('Unexpected slippage');
   return [value.multiply(ONE.subtract(slippage)).quotient, value.multiply(ONE.add(slippage)).quotient];
+}
+
+/**
+ * Given two tokens return the liquidity token that represents its liquidity shares
+ * @param tokenA one of the two tokens
+ * @param tokenB the other token
+ */
+export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
+  if (tokenA.chainId !== tokenB.chainId) throw new Error('Not matching chain IDs');
+  if (tokenA.equals(tokenB)) throw new Error('Tokens cannot be equal');
+  if (!FACTORY_ADDRESS[tokenA.chainId]) throw new Error('No V2 factory address on this chain');
+
+  return new Token(
+    tokenA.chainId,
+    computePairAddress({ factoryAddress: FACTORY_ADDRESS[tokenA.chainId], tokenA, tokenB }),
+    18,
+    'UNI-V2',
+    'Uniswap V2',
+  );
 }

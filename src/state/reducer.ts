@@ -6,6 +6,7 @@ import user from './user/reducer';
 import transactions from './transactions/reducer';
 import chains from './chains/reducer';
 import mint from './mint/reducer';
+import burn from './burn/reducer';
 import { combineReducers } from '@reduxjs/toolkit';
 
 const reducer = combineReducers({
@@ -17,5 +18,6 @@ const reducer = combineReducers({
   chains,
   theme,
   mint,
+  burn,
 });
 export default reducer;

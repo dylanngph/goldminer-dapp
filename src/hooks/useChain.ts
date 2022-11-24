@@ -8,7 +8,7 @@ export function useChain() {
   // const { chain: { id: chainId } = { id: selfManagedChainId } } = useNetwork();
   // const chainId = useAppSelector((state) => state.chains.chainId);
 
-  const chainId = useMemo(() => getChainId(), []);
+  const chainId: number = useMemo(() => getChainId(), []);
   const { data: signer } = useSigner();
   const client = useClient();
   const provider = useMemo(() => {

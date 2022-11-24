@@ -82,3 +82,6 @@ export { useSwitchNetwork } from './useSwitchNetwork';
 export { useBlockNumber } from './useBlockNumber';
 export { useRefetchIncreasedInterval } from './useIncreasedInterval';
 export { useApproveCallback } from './useApproveCallback';
+export { useV2PairsWithLiquidity } from './useV2PairsWithLiquidity';
+export { useTotalSupply, useMultipleTotalSupply } from './useTotalSupply';
+export { useDebouncedChangeHandler } from './useDebouncedChangeHandler';

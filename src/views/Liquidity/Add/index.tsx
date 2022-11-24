@@ -23,15 +23,15 @@ import { useTransactionAdder } from 'state/transactions/hooks';
 import { useExpertModeManager, useUserSlippageTolerance } from 'state/user/hooks';
 import { getCurrencyId } from 'utils/currencies';
 import { calculateGasMargin, calculateSlippageAmount } from 'utils/trade';
-import TradePrice from '../Swap/components/TradePrice';
-import ConfirmAddLiqModal from './components/ConfirmAddLiqModal';
+import TradePrice from '../../Swap/components/TradePrice';
+import ConfirmAddLiqModal from '../components/ConfirmAddLiqModal';
 
 export default function AddLiquidity() {
   const { account, chainId, provider } = useChain();
   const router = useRouter();
-  // const tokens = router.query.tokens;
-  const [currencyIdA, setCurrencyIdA] = useState(PROJECT_TOKEN_ADDRESS[chainId]);
-  const [currencyIdB, setCurrencyIdB] = useState('ETH');
+  const tokens = router.query.tokens;
+  const [currencyIdA, setCurrencyIdA] = useState(tokens?.[0] || PROJECT_TOKEN_ADDRESS[chainId]);
+  const [currencyIdB, setCurrencyIdB] = useState(tokens?.[1] || 'ETH');
 
   const currencyA = useCurrency(currencyIdA);
   const currencyB = useCurrency(currencyIdB);
@@ -84,9 +84,9 @@ export default function AddLiquidity() {
 
   // check whether the user has approved the router on the tokens
   const [approvalA, approveACallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_A], routerContract?.address);
-  console.log("🚀 ~ file: index.tsx ~ line 87 ~ AddLiquidity ~ approvalA", approvalA)
+  console.log('🚀 ~ file: index.tsx ~ line 87 ~ AddLiquidity ~ approvalA', approvalA);
   const [approvalB, approveBCallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_B], routerContract?.address);
-  console.log("🚀 ~ file: index.tsx ~ line 89 ~ AddLiquidity ~ approvalB", approvalB)
+  console.log('🚀 ~ file: index.tsx ~ line 89 ~ AddLiquidity ~ approvalB', approvalB);
 
   const addIsUnsupported = useIsSwapUnsupported(currencies?.CURRENCY_A, currencies?.CURRENCY_B);
 

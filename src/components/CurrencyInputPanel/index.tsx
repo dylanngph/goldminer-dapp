@@ -1,12 +1,11 @@
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { Box, Button, InputAdornment, Stack, styled, TextField, Typography } from "@mui/material";
-import { Currency, CurrencyAmount, JSBI } from "@bionswap/core-sdk";
-import { CurrencyLogo } from "components";
-import CurrencySearch from "components/ManageCurrencyListModal/CurrencySearch";
-import { useAccount, useCurrencyBalance, useUSDCValue } from "hooks";
-import { useCallback, useState } from "react";
-import { tryParseAmount } from "utils/parse";
-import ManageCurrencyListModal from "components/ManageCurrencyListModal";
+import { Currency } from '@bionswap/core-sdk';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { Box, Button, Stack, styled, TextField, Typography } from '@mui/material';
+import { CurrencyLogo } from 'components';
+import ManageCurrencyListModal from 'components/ManageCurrencyListModal';
+import { useAccount, useCurrencyBalance, useUSDCValue } from 'hooks';
+import { useCallback, useState } from 'react';
+import { tryParseAmount } from 'utils/parse';
 
 type Props = {
   value: string;
@@ -29,7 +28,7 @@ const CurrencyInputPanel = ({
 }: Props) => {
   const { address: account } = useAccount();
   const currencyBalance = useCurrencyBalance(account, currency);
-  const usdValue = useUSDCValue(tryParseAmount(value || "1", currency));
+  const usdValue = useUSDCValue(tryParseAmount(value || '1', currency));
 
   const [searchModalOpen, setSearchModalOpen] = useState(false);
 
@@ -38,11 +37,11 @@ const CurrencyInputPanel = ({
       onCurrencySelect?.(currency);
       setSearchModalOpen(false);
     },
-    [onCurrencySelect]
+    [onCurrencySelect],
   );
 
   const handleMaxBalance = () => {
-    onUserInput(currencyBalance?.toFixed(2)?.toString() || "");
+    onUserInput(currencyBalance?.toFixed(2)?.toString() || '');
   };
 
   const handleCloseSearchModal = useCallback(() => {
@@ -52,25 +51,31 @@ const CurrencyInputPanel = ({
   return (
     <WrapCurrencyInputPanel>
       <Stack>
-        <Stack direction="row" justifyContent="space-between" width={"100%"} mb="7px">
-          <Typography variant="body3Poppins" sx={{
-            color: 'gray.300',
-            fontWeight: '400',
-          }}>
+        <Stack direction="row" justifyContent="space-between" width={'100%'} mb="7px">
+          <Typography
+            variant="body3Poppins"
+            sx={{
+              color: 'gray.300',
+              fontWeight: '400',
+            }}
+          >
             {`~$${usdValue?.toFixed(2) || 0}`}
           </Typography>
-          <Typography variant="body3Poppins" sx={{
-            color: 'gray.300',
-            fontWeight: '400',
-          }}>
+          <Typography
+            variant="body3Poppins"
+            sx={{
+              color: 'gray.300',
+              fontWeight: '400',
+            }}
+          >
             Balance: {`${currencyBalance?.toFixed(4) || 0}`}
           </Typography>
         </Stack>
         <TextField
-          type={"number"}
+          type={'number'}
           variant="standard"
           value={value}
-          placeholder='0.0'
+          placeholder="0.0"
           onChange={(e) => {
             onUserInput(e.target.value);
           }}
@@ -78,15 +83,15 @@ const CurrencyInputPanel = ({
             onInputBlur?.();
           }}
           sx={{
-            backgroundColor: "transparent",
+            backgroundColor: 'transparent',
             width: '100%',
 
-            "& .MuiInputBase-input": {
-              fontWeight: "400",
-              fontSize: "28px",
-              lineHeight: "180%",
-              padding: "0",
-              color: 'text.primary'
+            '& .MuiInputBase-input': {
+              fontWeight: '400',
+              fontSize: '28px',
+              lineHeight: '180%',
+              padding: '0',
+              color: 'text.primary',
             },
             borderRadius: 1,
           }}
@@ -98,29 +103,32 @@ const CurrencyInputPanel = ({
               <Button
                 onClick={() => setSearchModalOpen(true)}
                 sx={{
-                  boxShadow: "none",
-                  justifyContent: "space-between",
-                  minWidth: "auto",
-                  backgroundColor: "gray.800",
+                  boxShadow: 'none',
+                  justifyContent: 'space-between',
+                  minWidth: 'auto',
+                  backgroundColor: 'gray.800',
                   borderRadius: '8px',
                   '&:hover': {
-                    backgroundColor: "gray.800",
-                  }
+                    backgroundColor: 'gray.800',
+                  },
                 }}
                 endIcon={
                   <ArrowDropDownIcon
                     sx={{
-                      color: "text.primary",
+                      color: 'text.primary',
                     }}
                   />
                 }
               >
-                <Stack direction="row" gap='5px'>
+                <Stack direction="row" gap="5px">
                   <CurrencyLogo currency={currency} size={25} />
-                  <Typography sx={{
-                    fontWeight: '500', fontSize: '16px',
-                    color: '#FFF3F3',
-                  }}>
+                  <Typography
+                    sx={{
+                      fontWeight: '500',
+                      fontSize: '16px',
+                      color: '#FFF3F3',
+                    }}
+                  >
                     {currency?.symbol}
                   </Typography>
                 </Stack>
@@ -129,7 +137,7 @@ const CurrencyInputPanel = ({
             disableUnderline: true,
           }}
         />
-        <Stack alignItems='flex-start' width='100%' mt='8px'>
+        <Stack alignItems="flex-start" width="100%" mt="8px">
           {isMax && <MaxButton onClick={handleMaxBalance}>Max</MaxButton>}
         </Stack>
         <ManageCurrencyListModal
@@ -147,20 +155,20 @@ const WrapCurrencyInputPanel = styled(Box)`
   background: ${(props) => props.theme.palette.background.default};
   padding: 15px;
   border: 1px solid;
-  transition: .12s ease-in;
+  transition: 0.12s ease-in;
   &:hover {
     border-color: ${(props) => props.theme.palette.gray[500]};
   }
 `;
 const MaxButton = styled(Button)`
-  color: ${(props) => props.theme.palette.primary.main};;
+  color: ${(props) => props.theme.palette.primary.main};
   text-align: center;
   font-weight: 400;
   font-size: 12px;
   line-height: 24px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: transparent;
-  border: 1px solid rgba(141, 241, 250, .5);
+  border: 1px solid rgba(141, 241, 250, 0.5);
   border-radius: 8px;
   width: 45px;
   padding: 1px;
