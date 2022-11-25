@@ -38,5 +38,5 @@ yarn-error.log*
 packages/**/node_modules
 
 # env
-.env.development
-.env.production
+# .env.development
+# .env.production
