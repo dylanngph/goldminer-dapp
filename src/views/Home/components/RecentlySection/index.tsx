@@ -1,6 +1,8 @@
 import { styled, Box, Container, Stack, Typography, Tabs, Tab } from '@mui/material';
 import { useState } from 'react';
 import Characters from './components/Characters';
+import Items from './components/Items';
+import Machines from './components/Machines';
 
 const items = [
   {
@@ -57,11 +59,11 @@ const configs = [
   },
   {
     title: 'Items',
-    component: '',
+    component: <Items data={[]} />,
   },
   {
     title: 'Machines',
-    component: '',
+    component: <Machines data={[]} />,
   },
 ];
 
@@ -138,7 +140,23 @@ const RecentlySection = () => {
 
 const Section = styled(Box)`
   margin-top: 50px;
+  margin-bottom: 90px;
 `;
-const WrapBox = styled(Stack)``;
+const WrapBox = styled(Stack)`
+  align-items: flex-start;
+  gap: 2.4rem;
+
+  .Mui-selected {
+    span {
+      color: ${(prop) => prop.theme.palette.text.primary};
+    }
+  }
+
+  .MuiTabs-indicator {
+    background: #f0b90b;
+    border-radius: 4px 4px 0px 0px;
+    height: 5px;
+  }
+`;
 
 export default RecentlySection;

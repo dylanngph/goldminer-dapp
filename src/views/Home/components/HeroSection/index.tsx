@@ -35,17 +35,22 @@ const HeroSection = () => {
     <Section>
       <Container maxWidth="xl">
         <Stack width="100%" alignItems='flex-end'>
-          <Stack>
+          <Stack width='100%' alignItems='flex-end'>
             <Box
               sx={{
                 position: 'relative',
-                width: '54.8rem',
+                maxWidth: '54.8rem',
+                width: '100%',
                 aspectRatio: '1/0.34',
               }}
             >
               <Image src="/images/Group48095620.png" alt="" layout="fill" objectFit="contain" />
             </Box>
-            <Stack flexDirection="row" gap='1.6rem' ml='-3.5rem' mt='-2rem'>
+            <Stack flexDirection="row" gap='1.6rem' ml='-3.5rem' sx={{
+                  width: '100%',
+                  maxWidth: '54.8rem',
+                  mt: {xs: '2rem', md: '-2rem'}
+            }}>
               {Socials?.map((item: any) => (
                 <Link key={item.icon} href={item.link}>
                   <SocialItem>

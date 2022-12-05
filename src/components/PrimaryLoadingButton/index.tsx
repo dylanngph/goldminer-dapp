@@ -21,7 +21,7 @@ const PrimaryLoadingButton: React.FC<PrimaryButtonProps> = ({
       sx={{
         background: variant === "outlined" ? "transparent" : "linear-gradient(180deg, #E8A639 0%, #EBB340 50.84%, #F2CA4C 100%)",
         boxShadow: '0px 2px 5px rgba(234, 177, 63, 0.44)',
-        border: variant === "outlined" ? "1px solid #07E0E0" : "none",
+        border: variant === "outlined" ? "1.5px solid #E6AB58" : "none",
         padding: "5px",
         width: "100%",
         transition: "all .3s ease",
@@ -30,6 +30,7 @@ const PrimaryLoadingButton: React.FC<PrimaryButtonProps> = ({
         "&:hover": {
           background: variant === "outlined" ? "transparent" : "linear-gradient(180deg, #E8A639 0%, #EBB340 50.84%, #F2CA4C 100%)",
           opacity: 0.9,
+          border: variant === "outlined" ? "1.5px solid #E6AB58" : "none",
         },
         ...sx,
       }}

@@ -24,7 +24,14 @@ const WeeklySection = () => {
     <Section>
       <Container maxWidth="xl">
         <WrapBox>
-          <Stack gap='2.4rem' flexDirection='row'>
+          <Stack
+            gap="2.4rem"
+            flexDirection="row"
+            flexWrap="wrap"
+            sx={{
+              justifyContent: { xs: 'start', sm: 'end' },
+            }}
+          >
             <ContentBox>
               <Typography variant="body24MulishBold" color="text.primary" lineHeight="3rem">
                 This week in Gold Miner
@@ -44,11 +51,11 @@ const WeeklySection = () => {
                 >
                   <Image src={item.icon} alt={item.label} layout="fill" objectFit="contain" />
                 </Box>
-                <Stack alignItems='flex-start'>
-                  <Typography variant='body16MulishSemiBold' color='gray.500' lineHeight='2.4rem'>
+                <Stack alignItems="flex-start">
+                  <Typography variant="body16MulishSemiBold" color="gray.500" lineHeight="2.4rem">
                     {item.label}
                   </Typography>
-                  <Typography variant='body28MulishBlack' color='text.primary' lineHeight='3.5rem'>
+                  <Typography variant="body28MulishBlack" color="text.primary" lineHeight="3.5rem">
                     {item.value}
                   </Typography>
                 </Stack>

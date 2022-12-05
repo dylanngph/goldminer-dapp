@@ -32,7 +32,7 @@ const OverallSection = () => {
           <Typography variant="body24MulishBold" color="text.primary">
             Overall stats
           </Typography>
-          <Stack gap="2.4rem" flexDirection="row" justifyContent='space-between'>
+          <Stack gap="2.4rem" flexDirection="row" justifyContent='space-between' maxWidth='1156px' width='100%' flexWrap='wrap'>
             {configs.map((item: any, index: number) => (
               <>
                 <WrapItem key={item.icon}>
