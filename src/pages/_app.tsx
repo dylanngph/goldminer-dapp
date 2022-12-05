@@ -10,6 +10,7 @@ import { MulticallUpdater } from 'state/multicall/updater';
 // import { exception, GOOGLE_ANALYTICS_TRACKING_ID, pageview } from 'utils/gtag';
 import NextNProgress from 'nextjs-progressbar';
 import Provider from './Provider';
+import Menu from 'views/Menu';
 
 function MyApp({ Component, pageProps }: AppProps) {
   // const router = useRouter();
@@ -61,14 +62,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       /> */}
       <Provider>
-        {/* <Menu> */}
+        <Menu>
           <MulticallUpdater />
           <ListsUpdater />
           <Toast />
           <NextNProgress color="#07E0E0" stopDelayMs={500} height={3} options={{ easing: 'ease', speed: 1000 }} />
           <Component {...pageProps} />
           {/* <Footer /> */}
-        {/* </Menu> */}
+        </Menu>
       </Provider>
     </>
   );
