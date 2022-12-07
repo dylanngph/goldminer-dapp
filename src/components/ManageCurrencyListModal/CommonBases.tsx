@@ -28,7 +28,7 @@ const CommonBases = ({ onCurrencySelect }: Props) => {
         >
           <Stack direction="row" gap='5px'>
             <CurrencyLogo currency={currency} />
-            <Typography variant="body3Poppins" fontWeight='400' color='#FFF3F3'>
+            <Typography variant="body14MulishSemiBold" fontWeight='400' color='#FFF3F3'>
               {currency.symbol}
             </Typography>
           </Stack>

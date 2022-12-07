@@ -101,7 +101,7 @@ const CurrencySearch = ({
   return (
     <Stack>
       <Stack direction="column" alignItems="flex-start" gap="20px" width="100%" padding="25px 15px 20px">
-        <Typography variant="body3Poppins" color="text.primary" fontWeight="400">
+        <Typography variant="body14MulishSemiBold" color="text.primary" fontWeight="400">
           Select a token
         </Typography>
         <TextField
@@ -162,7 +162,7 @@ const CurrencySearch = ({
         </Stack> */}
       {/* <ManageTokenBtn fullWidth onClick={() => setView(ManageCurrencyListModalView.manage)}>
         <img src="/images/sticky_note_2.png" alt="sticky_note_2.png" />
-        <Typography variant="body3Poppins" fontWeight="400" color="primary.main">
+        <Typography variant="body14MulishSemiBold" fontWeight="400" color="primary.main">
           Manage Token List
         </Typography>
       </ManageTokenBtn> */}

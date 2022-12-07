@@ -61,7 +61,7 @@ export function TransactionSubmittedContent({
         }}
         onClick={onDismiss}
       >
-        <Typography variant="body4Poppins" fontWeight={600} color="#000607">
+        <Typography variant="body14MulishSemiBold" fontWeight={600} color="#000607">
           Close
         </Typography>
       </Button>
@@ -89,7 +89,7 @@ export function TransactionErrorContent({ message, onDismiss }: { message: strin
         }}
         onClick={onDismiss}
       >
-        <Typography variant="body4Poppins" fontWeight={600} color="#000607">
+        <Typography variant="body14MulishSemiBold" fontWeight={600} color="#000607">
           Dismiss
         </Typography>
       </Button>
@@ -135,7 +135,7 @@ const TransactionConfirmationModal = ({
       </IconButton>
       <Stack sx={{ minWidth: 200 }}>
         <Stack justifyContent="flex-start" direction="row" sx={{ width: '100%', mb: 3 }}>
-          <Typography variant="body3Poppins" fontWeight={400} color="text.primary">
+          <Typography variant="body14MulishSemiBold" fontWeight={400} color="text.primary">
             {title}
           </Typography>
         </Stack>

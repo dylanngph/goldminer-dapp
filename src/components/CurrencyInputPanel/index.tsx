@@ -53,7 +53,7 @@ const CurrencyInputPanel = ({
       <Stack>
         <Stack direction="row" justifyContent="space-between" width={'100%'} mb="7px">
           <Typography
-            variant="body3Poppins"
+            variant="body14MulishSemiBold"
             sx={{
               color: 'gray.300',
               fontWeight: '400',
@@ -62,7 +62,7 @@ const CurrencyInputPanel = ({
             {`~$${usdValue?.toFixed(2) || 0}`}
           </Typography>
           <Typography
-            variant="body3Poppins"
+            variant="body14MulishSemiBold"
             sx={{
               color: 'gray.300',
               fontWeight: '400',

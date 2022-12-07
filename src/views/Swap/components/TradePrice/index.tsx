@@ -30,7 +30,7 @@ const TradePrice = ({ price }: Props) => {
           },
         }}
       >
-        <Typography variant="body3Poppins" sx={{
+        <Typography variant="body14MulishSemiBold" sx={{
           fontWeight: '400',
           color: '#FFFCFC',
           marginRight: '8px'

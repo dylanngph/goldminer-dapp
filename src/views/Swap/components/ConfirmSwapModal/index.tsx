@@ -113,7 +113,7 @@ const ConfirmSwapModal = ({
             >
               <Stack direction="row" gap='11px'>
                 <InfoIcon color="success" />
-                <Typography variant="body4Poppins" color='green.400' fontWeight='400'>
+                <Typography variant="body14MulishSemiBold" color='green.400' fontWeight='400'>
                   Price Updated
                 </Typography>
               </Stack>
@@ -130,7 +130,7 @@ const ConfirmSwapModal = ({
                 }}
                 onClick={onAcceptChanges}
               >
-                <Typography variant="body4Poppins" color="text.secondary" fontWeight='600'>
+                <Typography variant="body14MulishSemiBold" color="text.secondary" fontWeight='600'>
                   Accept
                 </Typography>
               </Button>
@@ -172,7 +172,7 @@ const ConfirmSwapModal = ({
             }}
             onClick={onConfirm}
           >
-            <Typography variant="body4Poppins" fontWeight={600} color="#000607">
+            <Typography variant="body14MulishSemiBold" fontWeight={600} color="#000607">
               Confirm Swap
             </Typography>
           </Button>

@@ -73,10 +73,10 @@ const TransactionSettings = (props: Props) => {
             borderRadius="8px"
             sx={{ border: '1px solid rgba(32,34,49,.6)', p: 1 }}
           >
-            <Typography variant="body3Poppins">Transaction Settings</Typography>
+            <Typography variant="body14MulishSemiBold">Transaction Settings</Typography>
 
             <Stack alignItems="start" width="100%" gap={1} mt={1}>
-              <Typography variant="body3Poppins" color="gray.400">
+              <Typography variant="body14MulishSemiBold" color="gray.400">
                 Slippage Tolerance ?
               </Typography>
               <Stack direction="row" gap={1} width="100%">
@@ -114,7 +114,7 @@ const TransactionSettings = (props: Props) => {
               </Stack>
             </Stack>
             <Stack alignItems="start" width="100%" gap={1} mt={1}>
-              <Typography variant="body3Poppins" color="gray.400">
+              <Typography variant="body14MulishSemiBold" color="gray.400">
                 Transaction deadline ?
               </Typography>
               <Stack direction="row" gap={1} width="100%" justifyContent="start">
@@ -157,11 +157,11 @@ const TransactionSettings = (props: Props) => {
             borderRadius="8px"
             sx={{ border: '1px solid rgba(32,34,49,.6)', p: 1 }}
           >
-            <Typography variant="body3Poppins">Interface Settings</Typography>
+            <Typography variant="body14MulishSemiBold">Interface Settings</Typography>
 
             <Stack width="100%">
               <Stack direction="row" justifyContent="space-between" mt={1} width="100%">
-                <Typography variant="body3Poppins" color="gray.400">
+                <Typography variant="body14MulishSemiBold" color="gray.400">
                   Expert Mode ?
                 </Typography>
                 <Switch checked={expertMode} onChange={() => toggleExpertMode()} />

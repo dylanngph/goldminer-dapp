@@ -27,7 +27,7 @@ const Manage = (props: Props) => {
         <WrapTab direction="row" gap={1} sx={{ width: "100%" }}>
           {["Lists", "Tokens"].map((label, i) => (
             <Button className={selectedTab === i ? 'active': undefined} key={i} onClick={() => setSelectedTab(i)} fullWidth>
-              <Typography variant="body3Poppins" color={selectedTab === i ? 'primary.dark' : '#717D8A'} fontWeight='500'>
+              <Typography variant="body14MulishSemiBold" color={selectedTab === i ? 'primary.dark' : '#717D8A'} fontWeight='500'>
                 {label}
               </Typography>
             </Button>

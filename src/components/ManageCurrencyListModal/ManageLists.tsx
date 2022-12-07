@@ -81,10 +81,10 @@ const ListRow = memo(({ listUrl }: { listUrl: string }) => {
     >
       {list.logoURI && <ListLogo size="40px" logoURI={list.logoURI} alt={`${list.name} list logo`} />}
       <Stack alignItems="start">
-        <Typography variant="body4Poppins" fontWeight="500" color="text.primary">
+        <Typography variant="body14MulishSemiBold" fontWeight="500" color="text.primary">
           {list.name} <Typography component="span">{listVersionLabel(list.version)}</Typography>
         </Typography>
-        <Typography variant="body4Poppins" fontWeight="400" color="gray.300">
+        <Typography variant="body14MulishSemiBold" fontWeight="400" color="gray.300">
           {list.tokens.length} tokens
         </Typography>
       </Stack>

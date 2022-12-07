@@ -31,13 +31,13 @@ const SwapDetail = ({ recipient, trade, minimumAmountOut }: Props) => {
   return (
     <Stack sx={{ width: "100%", padding: '15px 5px' }} gap='15px' alignItems='inherit'>
       <Stack direction="row" justifyContent={"space-between"} width='100%'>
-        <Typography variant="body4Poppins" sx={{
+        <Typography variant="body14MulishSemiBold" sx={{
           fontWeight: '500',
           color: 'primary.main'
         }}>
           {`Slippage tolerance`}
         </Typography>
-        <Typography variant="body4Poppins" sx={{
+        <Typography variant="body14MulishSemiBold" sx={{
           fontWeight: '500',
           color: 'primary.main'
         }}>
@@ -46,13 +46,13 @@ const SwapDetail = ({ recipient, trade, minimumAmountOut }: Props) => {
       </Stack>
       {trade && (
         <Stack direction="row" justifyContent={"space-between"} width='100%'>
-          <Typography variant="body4Poppins" sx={{
+          <Typography variant="body14MulishSemiBold" sx={{
             fontWeight: '400',
             color: 'gray.400'
           }}>
             {`Minimum received`}
           </Typography>
-          <Typography variant="body4Poppins" sx={{
+          <Typography variant="body14MulishSemiBold" sx={{
             fontWeight: '400',
             color: 'text.primary'
           }}>
@@ -62,13 +62,13 @@ const SwapDetail = ({ recipient, trade, minimumAmountOut }: Props) => {
       )}
       {trade && (
         <Stack direction="row" justifyContent={"space-between"} width='100%'>
-          <Typography variant="body4Poppins" sx={{
+          <Typography variant="body14MulishSemiBold" sx={{
             fontWeight: '400',
             color: 'gray.400'
           }}>
             {`Price impact`}
           </Typography>
-          <Typography variant="body4Poppins" sx={{
+          <Typography variant="body14MulishSemiBold" sx={{
             fontWeight: '400',
             color: '#2BB673'
           }}>
@@ -79,13 +79,13 @@ const SwapDetail = ({ recipient, trade, minimumAmountOut }: Props) => {
       )}
       {trade && (
         <Stack direction="row" justifyContent={"space-between"} width='100%'>
-          <Typography variant="body4Poppins" sx={{
+          <Typography variant="body14MulishSemiBold" sx={{
             fontWeight: '400',
             color: 'gray.400'
           }}>
             {`Liquidity provider fee`}
           </Typography>
-          <Typography variant="body4Poppins" sx={{
+          <Typography variant="body14MulishSemiBold" sx={{
             fontWeight: '400',
             color: 'text.primary'
           }}>
@@ -95,13 +95,13 @@ const SwapDetail = ({ recipient, trade, minimumAmountOut }: Props) => {
       )}
       {/* {path && (
         <Stack direction="row" justifyContent={"space-between"} width='100%'>
-          <Typography variant="body3Poppins" sx={{
+          <Typography variant="body14MulishSemiBold" sx={{
             fontWeight: '400',
             color: 'gray.400'
           }}>
             {`Route`}
           </Typography>
-          <Typography variant="body3Poppins" sx={{
+          <Typography variant="body14MulishSemiBold" sx={{
             fontWeight: '400',
             color: 'text.primary'
           }}>
