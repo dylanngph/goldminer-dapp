@@ -437,8 +437,8 @@ const Swap = ({}: SwapProps) => {
           sx={{
             display: 'flex',
             gap: { xs: '30px', md: '16px' },
+            justifyContent: 'center',
             flexDirection: { xs: 'column', md: 'row' },
-            justifyContent: 'space-between',
           }}
         >
           <Box
@@ -449,10 +449,9 @@ const Swap = ({}: SwapProps) => {
           >
             <FlexBox justifyContent="space-between" mt="25px">
               <Typography
-                variant="h6Samsung"
+                variant="body14MulishBold"
                 sx={{
-                  fontWeight: '700',
-                  color: 'primary.main',
+                  color: 'gray.100',
                 }}
               >
                 Swap Token

@@ -11,7 +11,7 @@ type Props = {};
 const SwapPage = (props: Props) => {
   return (
     <>
-      <ConnectButton />
+      {/* <ConnectButton /> */}
       <Trade />
     </>
   );

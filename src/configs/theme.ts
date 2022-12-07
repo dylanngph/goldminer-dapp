@@ -113,12 +113,13 @@ declare module '@mui/material/Typography' {
 export const lightPalette: ExtendedPaletteOptions = {
   mode: 'light',
   primary: {
-    main: '#E7A236',
+    main: 'linear-gradient(180deg, #E8A639 0%, #EBB340 50.84%, #F2CA4C 100%)',
     light: '#ffc107',
     dark: '#FB8500',
   },
   secondary: {
     main: '#25273d',
+    
   },
   background: {
     default: '#FAFAFA',
@@ -135,6 +136,7 @@ export const lightPalette: ExtendedPaletteOptions = {
   warning: {
     main: 'rgba(255, 178, 55, 0.2)',
   },
+  
 };
 
 export const darkPalette: ExtendedPaletteOptions = {
@@ -221,7 +223,7 @@ export const darkPalette: ExtendedPaletteOptions = {
     main: '#2AC89F',
   },
   primary: {
-    main: '#07E0E0',
+    main: '#F2CA4C',
     light: '#242D35',
     dark: '#081319',
   },

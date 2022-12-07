@@ -1,4 +1,5 @@
 import { Box, Container, Stack, Typography, styled } from '@mui/material';
+import ConnectButton from 'components/ConnectButton';
 import PrimaryLoadingButton from 'components/PrimaryLoadingButton';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,8 +23,8 @@ const Menu = ({ children }: any) => {
   return (
     <>
       <Section>
-        <Container maxWidth='xl'>
-          <Stack flexDirection="row" gap="3rem" width='100%'>
+        <Container maxWidth="xl">
+          <Stack flexDirection="row" gap="3rem" width="100%">
             <Box
               sx={{
                 aspectRatio: '1',
@@ -40,9 +41,14 @@ const Menu = ({ children }: any) => {
                 </MenuItem>
               </Link>
             ))}
-            <ConnectWallet>
+            {/* <ConnectWallet>
               <Typography variant="body14MulishBold">Connect Wallet</Typography>
-            </ConnectWallet>
+            </ConnectWallet> */}
+            <Box sx={{
+              marginLeft: 'auto',
+            }}>
+              <ConnectButton />
+            </Box>
           </Stack>
         </Container>
       </Section>
