@@ -25,6 +25,7 @@ import { getCurrencyId } from 'utils/currencies';
 import { calculateGasMargin, calculateSlippageAmount } from 'utils/trade';
 import TradePrice from '../../Swap/components/TradePrice';
 import ConfirmAddLiqModal from '../components/ConfirmAddLiqModal';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function AddLiquidity() {
   const { account, chainId, provider } = useChain();
@@ -229,18 +230,21 @@ export default function AddLiquidity() {
         noLiquidity={noLiquidity}
         liquidityMinted={liquidityMinted}
       />
-      <Stack>
+      <Stack width='100%' gap='1rem'>
         <CurrencyInputPanel
           value={formattedAmounts[Field.CURRENCY_A]}
           onUserInput={onFieldAInput}
           onCurrencySelect={handleCurrencyASelect}
           currency={currencies[Field.CURRENCY_A]}
+          isMax={true}
         />
+        <AddIcon sx={{ color: "gray.500", fontSize: '4rem' }} />
         <CurrencyInputPanel
           value={formattedAmounts[Field.CURRENCY_B]}
           onUserInput={onFieldBInput}
           onCurrencySelect={handleCurrencyBSelect}
           currency={currencies[Field.CURRENCY_B]}
+          isMax={true}
         />
         <Stack bgcolor="black">
           <Stack direction={'row'} justifyContent="space-between" gap={1}>

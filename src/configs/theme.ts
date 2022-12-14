@@ -223,7 +223,7 @@ export const darkPalette: ExtendedPaletteOptions = {
     main: '#2AC89F',
   },
   primary: {
-    main: '#F2CA4C',
+    main: '#f0b90b',
     light: '#242D35',
     dark: '#081319',
   },

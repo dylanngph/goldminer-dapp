@@ -30,7 +30,7 @@ const Logo: React.FC<LogoProps> = ({ srcs, alt, ...rest }) => {
     );
   }
 
-  return <HelpIcon sx={{ color: "text.secondary", ...rest }} />;
+  return <HelpIcon sx={{ color: "gray.500", ...rest }} />;
 };
 
 export default Logo;

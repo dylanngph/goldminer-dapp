@@ -53,21 +53,11 @@ const CurrencyInputPanel = ({
       <Stack>
         <Stack direction="row" justifyContent="space-between" width={'100%'} mb="7px">
           <Typography
-            variant="body14MulishSemiBold"
-            sx={{
-              color: 'gray.300',
-              fontWeight: '400',
-            }}
-          >
-            {`~$${usdValue?.toFixed(2) || 0}`}
+            variant="body14MulishSemiBold" color='gray.400'>
+            {`~${usdValue?.toFixed(2) || 0}$`}
           </Typography>
           <Typography
-            variant="body14MulishSemiBold"
-            sx={{
-              color: 'gray.300',
-              fontWeight: '400',
-            }}
-          >
+            variant="body14MulishSemiBold" color='gray.400'>
             Balance: {`${currencyBalance?.toFixed(4) || 0}`}
           </Typography>
         </Stack>
@@ -87,11 +77,16 @@ const CurrencyInputPanel = ({
             width: '100%',
 
             '& .MuiInputBase-input': {
-              fontWeight: '400',
-              fontSize: '28px',
+              fontWeight: '800',
+              fontSize: '2.4rem',
               lineHeight: '180%',
               padding: '0',
-              color: 'text.primary',
+              color: 'gray.500',
+            },
+            '& .MuiInputBase-input::placeholder ': {
+              fontWeight: '800',
+              fontSize: '2.4rem',
+              lineHeight: '180%',
             },
             borderRadius: 1,
           }}
@@ -107,7 +102,9 @@ const CurrencyInputPanel = ({
                   justifyContent: 'space-between',
                   minWidth: 'auto',
                   backgroundColor: 'gray.800',
-                  borderRadius: '8px',
+                  borderRadius: '5rem',
+                  padding: '1rem 1.5rem',
+                  background: 'linear-gradient(180deg, #E8A639 0%, #EBB340 50.84%, #F2CA4C 100%), linear-gradient(0deg, #FFF0AB 0.14%, #FFBE45 100.14%)',
                   '&:hover': {
                     backgroundColor: 'gray.800',
                   },
@@ -156,6 +153,7 @@ const WrapCurrencyInputPanel = styled(Box)`
   padding: 15px;
   border: 1px solid;
   transition: 0.12s ease-in;
+  width: 100%;
   &:hover {
     border-color: ${(props) => props.theme.palette.gray[500]};
   }

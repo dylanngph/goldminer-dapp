@@ -72,6 +72,7 @@ const CurrencySearch = ({
   }, [filteredTokens, tokenComparator]);
 
   const filteredSortedTokens = useSortedTokensByQuery(sortedTokens, debouncedSearchQuery);
+  console.log("🚀 ~ file: CurrencySearch.tsx:75 ~ filteredSortedTokens", filteredSortedTokens)
 
   // @ts-ignore TYPE NEEDS FIXING
   const ether = useMemo(() => chainId && ![ChainId.CELO].includes(chainId) && NATIVE[chainId], [chainId]);
