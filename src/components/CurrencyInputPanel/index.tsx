@@ -17,6 +17,13 @@ type Props = {
   isMax?: boolean;
 };
 
+// const percentConfigs = [
+//   {
+//     id: 0,
+//     label: '25%',
+//   }
+// ]
+
 const CurrencyInputPanel = ({
   value,
   onUserInput,
@@ -52,12 +59,10 @@ const CurrencyInputPanel = ({
     <WrapCurrencyInputPanel>
       <Stack>
         <Stack direction="row" justifyContent="space-between" width={'100%'} mb="7px">
-          <Typography
-            variant="body14MulishSemiBold" color='gray.400'>
+          <Typography variant="body14MulishSemiBold" color="gray.400">
             {`~${usdValue?.toFixed(2) || 0}$`}
           </Typography>
-          <Typography
-            variant="body14MulishSemiBold" color='gray.400'>
+          <Typography variant="body14MulishSemiBold" color="gray.400">
             Balance: {`${currencyBalance?.toFixed(4) || 0}`}
           </Typography>
         </Stack>
@@ -102,9 +107,7 @@ const CurrencyInputPanel = ({
                   justifyContent: 'space-between',
                   minWidth: 'auto',
                   backgroundColor: 'gray.800',
-                  borderRadius: '5rem',
-                  padding: '1rem 1.5rem',
-                  background: 'linear-gradient(180deg, #E8A639 0%, #EBB340 50.84%, #F2CA4C 100%), linear-gradient(0deg, #FFF0AB 0.14%, #FFBE45 100.14%)',
+                  borderRadius: '50rem',
                   '&:hover': {
                     backgroundColor: 'gray.800',
                   },
@@ -135,7 +138,13 @@ const CurrencyInputPanel = ({
           }}
         />
         <Stack alignItems="flex-start" width="100%" mt="8px">
-          {isMax && <MaxButton onClick={handleMaxBalance}>Max</MaxButton>}
+          {isMax && (
+            <MaxButton onClick={handleMaxBalance}>
+              <Typography variant="body14MulishSemiBold" color="primary.main">
+                Max
+              </Typography>
+            </MaxButton>
+          )}
         </Stack>
         <ManageCurrencyListModal
           open={searchModalOpen}
@@ -159,17 +168,13 @@ const WrapCurrencyInputPanel = styled(Box)`
   }
 `;
 const MaxButton = styled(Button)`
-  color: ${(props) => props.theme.palette.primary.main};
   text-align: center;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 24px;
-  font-family: 'Poppins', sans-serif;
   background: transparent;
-  border: 1px solid rgba(141, 241, 250, 0.5);
-  border-radius: 8px;
-  width: 45px;
-  padding: 1px;
+  border: 1px solid ${(props) => props.theme.palette.primary.main};
+  border-radius: 1.2rem;
+  width: 5.3rem;
+  height: 2.7rem;
+  padding: 0.1rem;
 `;
 
 export default CurrencyInputPanel;
