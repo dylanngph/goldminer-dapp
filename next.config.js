@@ -4,7 +4,7 @@ const nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /.svg$/,
-      use: ["@svgr/webpack"],
+      use: ['@svgr/webpack'],
     });
 
     return config;
@@ -23,6 +23,13 @@ const nextConfig = {
     ],
     // loader: "cloudinary",
     // path: "https://res.cloudinary.com/demo/image/fetch/",
+  },
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
   },
 };
 
