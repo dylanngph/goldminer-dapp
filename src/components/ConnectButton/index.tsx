@@ -5,8 +5,6 @@ import { useState } from 'react';
 import { getConnectorIcon } from 'utils/connectors';
 import { shortenAddress } from 'utils/format';
 import { Chain, Connector } from 'wagmi';
-import ChainOptionsModal from './ChainOptionsModal';
-import ChainSelect from './ChainSelect';
 import ConnectorOptionsModal from './ConnectorOptionsModal';
 
 type Props = {};

@@ -60,18 +60,18 @@ const ConfirmSwapModal = ({
       swapErrorMessage ? (
         <TransactionErrorContent onDismiss={onDismiss} message={swapErrorMessage} />
       ) : (
-        <Stack sx={{ width: "100%" }}>
+        <Stack width='100%'>
           <Stack
             justifyContent="space-between"
             direction="row"
             sx={{ width: "100%", borderRadius: '8px', backgroundColor: "primary.dark", p: "17px 15px" }}
           >
-            <Typography variant="h4Poppins" color="text.primary" fontWeight='400'>
+            <Typography color="text.primary" fontWeight='400'>
               {trade?.inputAmount.toSignificant(6)}
             </Typography>
             <Stack direction="row" gap='5px'>
               <CurrencyLogo currency={trade?.inputAmount.currency} size={20} />
-              <Typography variant="body2Poppins" color='#FFF3F3' fontWeight='500'>
+              <Typography color='#FFF3F3' fontWeight='500'>
                 {trade?.inputAmount.currency.symbol}
               </Typography>
             </Stack>
@@ -86,12 +86,12 @@ const ConfirmSwapModal = ({
             direction="row"
             sx={{ width: "100%", borderRadius: '8px', backgroundColor: "primary.dark", p: "17px 15px" }}
           >
-            <Typography variant="h4Poppins" color="text.primary" fontWeight='400'>
+            <Typography color="text.primary" fontWeight='400'>
               {trade?.outputAmount.toSignificant(6)}
             </Typography>
             <Stack direction="row" gap='5px'>
               <CurrencyLogo currency={trade?.outputAmount.currency} size={20} />
-              <Typography variant="body2Poppins" color='#FFF3F3' fontWeight='500'>
+              <Typography color='#FFF3F3' fontWeight='500'>
                 {trade?.outputAmount.currency.symbol}
               </Typography>
             </Stack>
@@ -137,7 +137,7 @@ const ConfirmSwapModal = ({
             </Stack>
           )}
           {trade && (
-            <Typography variant="captionPoppins" textAlign={"center"} mt='20px' mb='20px' color="gray.300">
+            <Typography textAlign={"center"} mt='20px' mb='20px' color="gray.300">
               {`Output is estimated. You will receive at least ${trade.minimumAmountOut(allowedSlippage).toSignificant(6)} ${
                 trade.outputAmount.currency.symbol
               } or the transaction will revert.`}

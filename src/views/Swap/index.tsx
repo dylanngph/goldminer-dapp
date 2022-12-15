@@ -530,6 +530,7 @@ const Section = styled(Box)`
   padding: 8vh 0;
   min-height: 100vh;
   background-color: ${(props) => props.theme.palette.background.default};
+  width: 100%;
 `;
 const FlexBox = styled(Box)`
   display: flex;

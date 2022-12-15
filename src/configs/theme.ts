@@ -23,7 +23,9 @@ declare module '@mui/material' {
 
     body22MulishRegular: React.CSSProperties;
     body20MulishRegular: React.CSSProperties;
+
     body18MulishRegular: React.CSSProperties;
+    body18MulishSemiBold: React.CSSProperties;
 
     body16MulishRegular: React.CSSProperties;
     body16MulishSemiBold: React.CSSProperties;
@@ -53,7 +55,9 @@ declare module '@mui/material' {
 
     body22MulishRegular: React.CSSProperties;
     body20MulishRegular: React.CSSProperties;
+
     body18MulishRegular: React.CSSProperties;
+    body18MulishSemiBold: React.CSSProperties;
 
     body16MulishRegular: React.CSSProperties;
     body16MulishSemiBold: React.CSSProperties;
@@ -95,7 +99,9 @@ declare module '@mui/material/Typography' {
 
     body22MulishRegular: true;
     body20MulishRegular: true;
+
     body18MulishRegular: true;
+    body18MulishSemiBold: true;
 
     body16MulishRegular: true;
     body16MulishSemiBold: true;
@@ -301,9 +307,15 @@ const getComponentTheme = (basePalette: ExtendedPaletteOptions): ThemeOptions =>
         fontWeight: '400',
         lineHeight: '100%',
       },
+
       body18MulishRegular: {
         fontSize: '1.8rem',
         fontWeight: '400',
+        lineHeight: '100%',
+      },
+      body18MulishSemiBold: {
+        fontSize: '1.8rem',
+        fontWeight: '600',
         lineHeight: '100%',
       },
 

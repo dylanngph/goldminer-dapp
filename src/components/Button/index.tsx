@@ -39,7 +39,8 @@ const Button: React.FC<ButtonProps> = ({
           width: '100%',
           transition: 'all .3s ease',
           cursor: 'pointer',
-          borderRadius: '4px',
+          // borderRadius: '4px',
+          borderRadius: '100px',
           '&:hover': {
             backgroundColor: variant === 'outlined' ? 'transparent' : backgroundColor,
             opacity: 0.9,

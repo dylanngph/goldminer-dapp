@@ -1,5 +1,5 @@
 import { Currency, CurrencyAmount, Percent } from '@bionswap/core-sdk';
-import { Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography, styled } from '@mui/material';
 import { TransactionConfirmationModal, Button, DoubleCurrencyLogo } from 'components';
 import React, { useMemo } from 'react';
 import { Field } from 'state/mint/actions';
@@ -35,7 +35,7 @@ const ConfirmAddLiqModal = ({
 
   const ConfirmationModalContent = useMemo(() => {
     return (
-      <Stack>
+      <Stack width="100%" gap="2rem">
         {noLiquidity ? (
           <Stack>
             <Typography>{currencies[Field.CURRENCY_A]?.symbol + '/' + currencies[Field.CURRENCY_B]?.symbol}</Typography>
@@ -46,14 +46,24 @@ const ConfirmAddLiqModal = ({
             />
           </Stack>
         ) : (
-          <Stack>
-            <Typography>{liquidityMinted?.toSignificant(6)}</Typography>
-            <DoubleCurrencyLogo
-              currency0={currencies[Field.CURRENCY_A]}
-              currency1={currencies[Field.CURRENCY_B]}
-              size={48}
-            />
-            <Typography>
+          <Stack alignItems="flex-start" gap="1rem" width="100%">
+            <WrapBox>
+              <Stack flexDirection="row" gap=".7rem" justifyContent="flex-start">
+                <DoubleCurrencyLogo
+                  currency0={currencies[Field.CURRENCY_A]}
+                  currency1={currencies[Field.CURRENCY_B]}
+                  size={30}
+                />
+                <Typography variant="body14MulishSemiBold" color="gray.400">
+                  {currencies[Field.CURRENCY_A]?.symbol}/{currencies[Field.CURRENCY_B]?.symbol}
+                </Typography>
+                <Typography variant="body14MulishBold" color="gray.500">
+                  {liquidityMinted?.toSignificant(6)}
+                </Typography>
+              </Stack>
+            </WrapBox>
+
+            {/* <Typography>
               {currencies[Field.CURRENCY_A]?.symbol}/{currencies[Field.CURRENCY_B]?.symbol}
               &nbsp;{`Pool Tokens`}
             </Typography>
@@ -62,10 +72,19 @@ const ConfirmAddLiqModal = ({
                 4,
               )}% your transaction
             will revert.`}
-            </Typography>
+            </Typography> */}
           </Stack>
         )}
-        <Button label="Confirm Supply" onClick={onAdd} />
+        <Button
+          label="Confirm Supply"
+          onClick={onAdd}
+          labelSx={{
+            fontSize: '1.6rem',
+            lineHeight: '2.7rem',
+            fontWeight: '700',
+            color: 'text.primary',
+          }}
+        />
       </Stack>
     );
   }, [allowedSlippage, currencies, liquidityMinted, noLiquidity, onAdd]);
@@ -82,5 +101,12 @@ const ConfirmAddLiqModal = ({
     />
   );
 };
+
+const WrapBox = styled(Box)`
+  background: #000e12;
+  border-radius: 8px;
+  padding: 1.7rem 1.5rem;
+  width: 100%;
+`;
 
 export default ConfirmAddLiqModal;

@@ -1,17 +1,13 @@
-import { Stack } from '@mui/material';
-import { ConnectButton } from 'components';
+import LiquidityBox from 'components/LiquidityBox';
 import AddLiquidity from 'views/Liquidity/Add';
 
 type Props = {};
 
 const AddLiquidityPage = (props: Props) => {
   return (
-    <>
-      <Stack sx={{ bgcolor: 'black' }}>
-        <ConnectButton />
-        <AddLiquidity />
-      </Stack>
-    </>
+    <LiquidityBox isBack={true}>
+      <AddLiquidity />
+    </LiquidityBox>
   );
 };
 

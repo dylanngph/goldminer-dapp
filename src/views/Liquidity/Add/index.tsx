@@ -1,7 +1,7 @@
 import { Currency, currencyEquals, WNATIVE } from '@bionswap/core-sdk';
 import { BigNumber } from '@ethersproject/bignumber';
 import { TransactionResponse } from '@ethersproject/providers';
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography, styled } from '@mui/material';
 import { Button, ConnectButton, CurrencyInputPanel } from 'components';
 import { PROJECT_TOKEN_ADDRESS } from 'constants/addresses';
 import { ONE_BIPS, ZERO_PERCENT } from 'constants/common';
@@ -230,7 +230,7 @@ export default function AddLiquidity() {
         noLiquidity={noLiquidity}
         liquidityMinted={liquidityMinted}
       />
-      <Stack width='100%' gap='1rem'>
+      <Stack width="100%" gap="2rem">
         <CurrencyInputPanel
           value={formattedAmounts[Field.CURRENCY_A]}
           onUserInput={onFieldAInput}
@@ -238,7 +238,7 @@ export default function AddLiquidity() {
           currency={currencies[Field.CURRENCY_A]}
           isMax={true}
         />
-        <AddIcon sx={{ color: "gray.500", fontSize: '4rem' }} />
+        <AddIcon sx={{ color: 'gray.500', fontSize: '4rem' }} />
         <CurrencyInputPanel
           value={formattedAmounts[Field.CURRENCY_B]}
           onUserInput={onFieldBInput}
@@ -246,28 +246,33 @@ export default function AddLiquidity() {
           currency={currencies[Field.CURRENCY_B]}
           isMax={true}
         />
-        <Stack bgcolor="black">
+
+        <WrapPricesAndPoolShare>
+          <Typography variant="body16MulishBold" color="gray.500">
+            Prices and pool share
+          </Typography>
           <Stack direction={'row'} justifyContent="space-between" gap={1}>
-            <Typography>Rate</Typography>
             <TradePrice price={price} />
           </Stack>
           <Stack direction={'row'} justifyContent="space-between" gap={1}>
-            <Typography>Share of pool</Typography>
-            <Typography>
+            <Typography variant="body14MulishSemiBold" color="gray.500">
+              Pool Share:
+            </Typography>
+            <Typography variant="body14MulishSemiBold" color="gray.500">
               {noLiquidity && price
                 ? '100'
                 : (poolTokenPercentage?.lessThan(ONE_BIPS) ? '<0.01' : poolTokenPercentage?.toFixed(2)) ?? '0'}
               %
             </Typography>
           </Stack>
-        </Stack>
+        </WrapPricesAndPoolShare>
 
         {addIsUnsupported ? (
           <Button label={`Unsupported Asset`} />
         ) : !account ? (
           <ConnectButton />
         ) : (
-          <Stack>
+          <Stack width="100%">
             {approvalA !== ApprovalState.APPROVED && approvalA !== ApprovalState.UNKNOWN && (
               <Button
                 loading={approvalA === ApprovalState.PENDING}
@@ -275,6 +280,12 @@ export default function AddLiquidity() {
                 onClick={approveACallback}
                 disabled={approvalA === ApprovalState.PENDING}
                 label={`Approve ${currencies[Field.CURRENCY_A]?.symbol}`}
+                labelSx={{
+                  fontSize: '1.6rem',
+                  lineHeight: '2.7rem',
+                  fontWeight: '700',
+                  color: 'text.primary',
+                }}
               />
             )}
             {approvalB !== ApprovalState.APPROVED && approvalB !== ApprovalState.UNKNOWN && (
@@ -284,19 +295,43 @@ export default function AddLiquidity() {
                 onClick={approveBCallback}
                 disabled={approvalB === ApprovalState.PENDING}
                 label={`Approve ${currencies[Field.CURRENCY_B]?.symbol}`}
+                labelSx={{
+                  fontSize: '1.6rem',
+                  lineHeight: '2.7rem',
+                  fontWeight: '700',
+                  color: 'text.primary',
+                }}
               />
             )}
-            <Button
-              fullWidth
-              onClick={() => {
-                isExpertMode ? onAdd() : setShowConfirm(true);
-              }}
-              disabled={!isValid || approvalA !== ApprovalState.APPROVED || approvalB !== ApprovalState.APPROVED}
-              label={error ?? `Add Liquidity`}
-            />
+            {approvalB === ApprovalState.APPROVED && approvalA === ApprovalState.APPROVED && (
+              <Button
+                fullWidth
+                onClick={() => {
+                  isExpertMode ? onAdd() : setShowConfirm(true);
+                }}
+                disabled={!isValid || approvalA !== ApprovalState.APPROVED || approvalB !== ApprovalState.APPROVED}
+                label={error ?? `Add Liquidity`}
+                labelSx={{
+                  fontSize: '1.6rem',
+                  lineHeight: '2.7rem',
+                  fontWeight: '700',
+                  color: 'text.primary',
+                }}
+              />
+            )}
           </Stack>
         )}
       </Stack>
     </>
   );
 }
+
+const WrapPricesAndPoolShare = styled(Stack)`
+  border: 1px solid ${prop => prop.theme.palette.gray[600]};
+  border-radius: 16px;
+  padding: 1.2rem 2rem;
+  background-color: transparent;
+  width: 100%;
+  gap: 0.8rem;
+  align-items: flex-start;
+`;

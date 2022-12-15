@@ -1,8 +1,8 @@
-import { Currency, Price } from "@bionswap/core-sdk";
-import { Button, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
-import SyncAltIcon from "@mui/icons-material/SyncAlt";
-import Image from "next/image"
+import { Currency, Price } from '@bionswap/core-sdk';
+import { Button, Stack, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import SwapHorizontalCircleIcon from '@mui/icons-material/SwapHorizontalCircle';
+import Image from 'next/image';
 
 type Props = {
   price?: Price<Currency, Currency>;
@@ -22,23 +22,24 @@ const TradePrice = ({ price }: Props) => {
       <Button
         onClick={() => setInverted(!inverted)}
         sx={{
-          boxShadow: "none",
+          boxShadow: 'none',
           padding: '0',
-          "&:hover": {
-            transform: "none",
-            backgroundColor: "transparent",
+          display: 'flex',
+          gap: '0.6rem',
+
+          '&:hover': {
+            transform: 'none',
+            backgroundColor: 'transparent',
           },
         }}
       >
-        <Typography variant="body14MulishSemiBold" sx={{
-          fontWeight: '400',
-          color: '#FFFCFC',
-          marginRight: '8px'
-        }}>
+        <Typography variant="body14MulishSemiBold" color="gray.500">
           {`1 ${label} = ${formattedPrice} ${labelInverted}`}
         </Typography>
-        
-        <Image src='/images/trade/swap_horizontal_circle.png' alt="swap_horizontal_circle" width={21} height={20} />
+        <SwapHorizontalCircleIcon sx={{
+          color: 'gray.500',
+          fontSize: '2rem'
+        }} />
       </Button>
     </Stack>
   );

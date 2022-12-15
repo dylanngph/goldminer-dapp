@@ -121,7 +121,7 @@ const TransactionConfirmationModal = ({
       sx={{
         backgroundColor: 'gray.900',
         minWidth: '200px',
-        maxWidth: '556px',
+        maxWidth: '37.7rem',
         width: '90vW',
         border: '1px solid',
         borderColor: 'gray.700',
@@ -133,12 +133,10 @@ const TransactionConfirmationModal = ({
       <IconButton onClick={onDismiss} sx={{ position: 'absolute', right: 8, top: 8 }}>
         <CloseIcon />
       </IconButton>
-      <Stack sx={{ minWidth: 200 }}>
-        <Stack justifyContent="flex-start" direction="row" sx={{ width: '100%', mb: 3 }}>
-          <Typography variant="body14MulishSemiBold" fontWeight={400} color="text.primary">
-            {title}
-          </Typography>
-        </Stack>
+      <Stack width="100%" gap="2rem" alignItems='left'>
+        <Typography variant="body14MulishBold" color="text.primary">
+          {title}
+        </Typography>
         {attemptingTxn ? (
           <ConfirmationPendingContent pendingText={pendingText} />
         ) : hash ? (
