@@ -103,7 +103,7 @@ const ConfirmAddLiqModal = ({
 };
 
 const WrapBox = styled(Box)`
-  background: #000e12;
+  background: ${(props) => props.theme.palette.background.default};
   border-radius: 8px;
   padding: 1.7rem 1.5rem;
   width: 100%;

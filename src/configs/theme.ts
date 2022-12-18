@@ -26,16 +26,21 @@ declare module '@mui/material' {
 
     body18MulishRegular: React.CSSProperties;
     body18MulishSemiBold: React.CSSProperties;
+    body18MulishExtraBold: React.CSSProperties;
 
     body16MulishRegular: React.CSSProperties;
     body16MulishSemiBold: React.CSSProperties;
     body16MulishBold: React.CSSProperties;
+    body16ExtraBold: React.CSSProperties;
 
     body14MulishRegular: React.CSSProperties;
     body14MulishSemiBold: React.CSSProperties;
     body14MulishBold: React.CSSProperties;
 
     body12MulishRegular: React.CSSProperties;
+    body12MulishSemiBold: React.CSSProperties;
+    body12MulishBold: React.CSSProperties;
+
     body10MulishRegular: React.CSSProperties;
   }
 
@@ -58,16 +63,21 @@ declare module '@mui/material' {
 
     body18MulishRegular: React.CSSProperties;
     body18MulishSemiBold: React.CSSProperties;
+    body18MulishExtraBold: React.CSSProperties;
 
     body16MulishRegular: React.CSSProperties;
     body16MulishSemiBold: React.CSSProperties;
     body16MulishBold: React.CSSProperties;
+    body16ExtraBold: React.CSSProperties;
 
     body14MulishRegular: React.CSSProperties;
     body14MulishSemiBold: React.CSSProperties;
     body14MulishBold: React.CSSProperties;
 
     body12MulishRegular: React.CSSProperties;
+    body12MulishSemiBold: React.CSSProperties;
+    body12MulishBold: React.CSSProperties;
+
     body10MulishRegular: React.CSSProperties;
   }
 }
@@ -102,16 +112,21 @@ declare module '@mui/material/Typography' {
 
     body18MulishRegular: true;
     body18MulishSemiBold: true;
+    body18MulishExtraBold: true;
 
     body16MulishRegular: true;
     body16MulishSemiBold: true;
     body16MulishBold: true;
+    body16ExtraBold: true;
 
     body14MulishRegular: true;
     body14MulishSemiBold: true;
     body14MulishBold: true;
 
     body12MulishRegular: true;
+    body12MulishSemiBold: true;
+    body12MulishBold: true;
+
     body10MulishRegular: true;
   }
 }
@@ -238,7 +253,7 @@ export const darkPalette: ExtendedPaletteOptions = {
     light: '#9A6AFF',
   },
   background: {
-    default: '#000F15',
+    default: '#000E12',
     paper: '#fff',
   },
   text: {
@@ -318,6 +333,11 @@ const getComponentTheme = (basePalette: ExtendedPaletteOptions): ThemeOptions =>
         fontWeight: '600',
         lineHeight: '100%',
       },
+      body18MulishExtraBold: {
+        fontSize: '1.8rem',
+        fontWeight: '800',
+        lineHeight: '100%',
+      },
 
       body16MulishRegular: {
         fontSize: '1.6rem',
@@ -332,6 +352,11 @@ const getComponentTheme = (basePalette: ExtendedPaletteOptions): ThemeOptions =>
       body16MulishBold: {
         fontSize: '1.6rem',
         fontWeight: '700',
+        lineHeight: '100%',
+      },
+      body16ExtraBold: {
+        fontSize: '1.6rem',
+        fontWeight: '800',
         lineHeight: '100%',
       },
 
@@ -356,6 +381,17 @@ const getComponentTheme = (basePalette: ExtendedPaletteOptions): ThemeOptions =>
         fontWeight: '400',
         lineHeight: '100%',
       },
+      body12MulishSemiBold: {
+        fontSize: '1.2rem',
+        fontWeight: '600',
+        lineHeight: '100%',
+      },
+      body12MulishBold: {
+        fontSize: '1.2rem',
+        fontWeight: '700',
+        lineHeight: '100%',
+      },
+
       body10MulishRegular: {
         fontSize: '1rem',
         fontWeight: '400',

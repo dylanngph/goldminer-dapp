@@ -7,7 +7,7 @@ export const PROJECT_TOKEN: TokenMap = {
     ChainId.BSC_TESTNET,
     PROJECT_TOKEN_ADDRESS[ChainId.BSC_TESTNET],
     18,
-    'ADT',
-    'Dot Arcade',
+    'FLP',
+    'Floppy',
   ),
 };

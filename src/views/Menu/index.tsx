@@ -15,7 +15,7 @@ const menuConfigs = [
   },
   {
     label: 'Earn',
-    href: '/earn',
+    href: '/farm',
   },
 ];
 

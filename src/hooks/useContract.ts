@@ -11,6 +11,8 @@ import { Contract, ContractFactory } from 'ethers';
 import { useChain } from 'hooks';
 import { useMemo } from 'react';
 import { getContract, getContractFactory } from 'utils/contract';
+import { FARM_ADDRESS } from 'constants/addresses';
+import FARM_STARKING_REWARDS_ABI from 'constants/abis/farm-staking-rewards.json';
 
 // returns null on errors
 export function useContract<T extends Contract = Contract>(
@@ -114,4 +116,8 @@ export function useENSRegistrarContract(withSignerIfPossible?: boolean): Contrac
 
 export function useENSResolverContract(address: string | undefined, withSignerIfPossible?: boolean): Contract | null {
   return useContract(address, ENS_PUBLIC_RESOLVER_ABI, withSignerIfPossible);
+}
+
+export function useFarm() {
+  return useContract(FARM_ADDRESS, FARM_STARKING_REWARDS_ABI, true);
 }
